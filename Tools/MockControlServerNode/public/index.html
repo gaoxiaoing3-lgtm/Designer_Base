@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Designer Control Console</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <section class="panel">
+      <div class="title">Designer Control Console</div>
+      <div class="subtitle">Node.js sender with realtime dispatch and Unreal fallback.</div>
+      <div class="pill" id="realtimeBadge">Realtime: Disconnected</div>
+
+      <div class="field">
+        <label for="templateCode">Template</label>
+        <select id="templateCode">
+          <option value="lowerthird_basic">lowerthird_basic</option>
+        </select>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="title">Title</label>
+          <input id="title" value="Alice Chen" />
+        </div>
+        <div class="field">
+          <label for="subtitle">Subtitle</label>
+          <input id="subtitle" value="Beijing Bureau" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="themeColor">Theme Color</label>
+          <div class="grid-2 compact-grid">
+            <input id="themeColor" value="#FF6600FF" />
+            <input id="themeColorPicker" type="color" value="#ff6600" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="showLogo">Show Logo</label>
+          <select id="showLogo">
+            <option value="true" selected>true</option>
+            <option value="false">false</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="logo">Logo Path</label>
+        <input id="logo" placeholder="Paste a real local path for Unreal to load" />
+        <input id="logoPicker" type="file" accept=".png,.jpg,.jpeg,.bmp,.webp,.tga" class="file-input" />
+        <div class="hint">选图后会自动上传到本机控制服务并回填真实路径；也可以直接手填本地绝对路径。</div>
+      </div>
+
+      <div class="preview-stack">
+        <div class="preview-card">
+          <div class="preview-label">Theme Color Preview</div>
+          <div id="themeColorPreview" class="color-strip"></div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-label">Logo Preview</div>
+          <img id="logoPreviewImage" class="logo-preview" alt="Logo Preview" />
+          <div id="logoPreviewEmpty" class="logo-empty">Choose an image to preview it here.</div>
+        </div>
+      </div>
+
+      <button id="sendActivate">Activate Template</button>
+      <button id="sendApply" class="spaced">Update Fields</button>
+      <div class="button-row">
+        <button id="sendTakeIn">Take In</button>
+        <button id="sendTakeOut">Take Out</button>
+      </div>
+      <div class="button-row">
+        <button id="sendClear" class="secondary">Send Clear</button>
+        <button id="refreshState" class="secondary">Refresh State</button>
+      </div>
+
+      <div class="field top-space">
+        <label for="rawCommand">Raw Command JSON</label>
+        <textarea id="rawCommand">{
+  "requestId": "req-custom-001",
+  "command": "status"
+}</textarea>
+      </div>
+      <button id="sendRaw" class="secondary">Send Raw JSON</button>
+
+      <div class="field top-space">
+        <label>Status</label>
+        <div id="statusBox" class="status-box">Ready.</div>
+      </div>
+    </section>
+
+    <section class="right-grid">
+      <div class="panel compact-panel">
+        <div class="title small-title">Runtime Monitor</div>
+        <div class="monitor-stack">
+          <div class="monitor-block">
+            <div class="preview-label">Unreal Runtime State</div>
+            <div id="runtimeState" class="json-box runtime-box">Waiting for state push...</div>
+          </div>
+          <div class="monitor-block">
+            <div class="preview-label">Pending Queue</div>
+            <div id="queueState" class="json-box queue-box">[]</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

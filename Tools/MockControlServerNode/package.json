@@ -1,0 +1,9 @@
+﻿{
+  "name": "designer-mock-control-server-node",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Low-latency local control server for Designer_Base",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

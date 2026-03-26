@@ -1,0 +1,39 @@
+# Unreal Engine generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# IDE and local tooling
+.vs/
+.idea/
+*.VC.db
+*.VC.opendb
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+*.pdb
+*.obj
+*.o
+*.ilk
+*.exp
+*.lib
+*.dll
+*.exe
+
+# Logs and crash dumps
+*.log
+*.dmp
+
+# Local shortcuts
+*.lnk
+
+# Node local runtime uploads
+Tools/MockControlServerNode/uploads/
+
+# DotNet build outputs
+Tools/MockControlServerDotNet/bin/
+Tools/MockControlServerDotNet/obj/
